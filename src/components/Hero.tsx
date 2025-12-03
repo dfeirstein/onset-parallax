@@ -4,77 +4,64 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { panelVariants } from "@/lib/data";
 import { TwitterIcon, InstagramIcon, LinkedInIcon } from "./Icons";
 
-const TOTAL_FRAMES = 144;
-
 export default function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [currentFrame, setCurrentFrame] = useState(0);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
-  const imagesRef = useRef<HTMLImageElement[]>([]);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const currentPanel = panelVariants[currentIndex];
 
-  // Preload all frame images
-  useEffect(() => {
-    const images: HTMLImageElement[] = [];
-    let loadedCount = 0;
-
-    for (let i = 0; i < TOTAL_FRAMES; i++) {
-      const img = new Image();
-      img.src = `/sequences/frames/frame_${String(i).padStart(4, "0")}.webp`;
-      img.onload = () => {
-        loadedCount++;
-        if (loadedCount === TOTAL_FRAMES) {
-          setImagesLoaded(true);
-        }
-      };
-      images.push(img);
-    }
-
-    imagesRef.current = images;
-  }, []);
-
-  // Scroll-linked frame animation AND panel transitions
+  // Video scrubbing based on scroll position
   useEffect(() => {
     let lastPanelIndex = 0;
+    let ticking = false;
 
     const handleScroll = () => {
-      if (!heroRef.current) return;
+      if (ticking) return;
 
-      const scrollY = window.scrollY;
-      const viewportHeight = window.innerHeight;
+      ticking = true;
+      requestAnimationFrame(() => {
+        if (!heroRef.current || !videoRef.current || !videoReady) {
+          ticking = false;
+          return;
+        }
 
-      // Animation completes over 2x viewport height of scrolling
-      // This happens while the hero is still sticky (before 200vh scroll)
-      const scrollRange = viewportHeight * 2;
-      const progress = Math.min(Math.max(scrollY / scrollRange, 0), 1);
-      const frameIndex = Math.floor(progress * (TOTAL_FRAMES - 1));
+        const scrollY = window.scrollY;
+        const viewportHeight = window.innerHeight;
+        const scrollRange = viewportHeight * 2;
+        const progress = Math.min(Math.max(scrollY / scrollRange, 0), 1);
 
-      setCurrentFrame(frameIndex);
+        // Scrub video to current position
+        const video = videoRef.current;
+        if (video.duration) {
+          video.currentTime = progress * video.duration;
+        }
 
-      // Sync panel transitions with scroll progress
-      // Divide scroll into 3 equal sections for 3 panels
-      const panelIndex = Math.min(
-        Math.floor(progress * panelVariants.length),
-        panelVariants.length - 1,
-      );
+        // Sync panel transitions with scroll progress
+        const panelIndex = Math.min(
+          Math.floor(progress * panelVariants.length),
+          panelVariants.length - 1,
+        );
 
-      if (panelIndex !== lastPanelIndex) {
-        lastPanelIndex = panelIndex;
-        setIsTransitioning(true);
-        setTimeout(() => {
-          setCurrentIndex(panelIndex);
-          setTimeout(() => setIsTransitioning(false), 300);
-        }, 150);
-      }
+        if (panelIndex !== lastPanelIndex) {
+          lastPanelIndex = panelIndex;
+          setIsTransitioning(true);
+          setTimeout(() => {
+            setCurrentIndex(panelIndex);
+            setTimeout(() => setIsTransitioning(false), 300);
+          }, 150);
+        }
+
+        ticking = false;
+      });
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Initial call
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [videoReady]);
 
   const goToPrev = useCallback(() => {
     if (isTransitioning) return;
@@ -112,15 +99,21 @@ export default function Hero() {
     <section ref={heroRef} className="relative h-[300vh] w-full z-10">
       {/* Fixed hero container - stays behind the curtain */}
       <div className="fixed top-0 left-0 right-0 h-screen w-full overflow-hidden bg-[#0A0A0A]">
-        {/* Background Frame Sequence */}
+        {/* Background Video */}
         <div className="absolute inset-0">
-          {imagesLoaded && (
-            <img
-              src={`/sequences/frames/frame_${String(currentFrame).padStart(4, "0")}.webp`}
-              alt="Hero background"
-              className="h-full w-full object-cover opacity-70"
-            />
-          )}
+          <video
+            ref={videoRef}
+            src="/hero.mp4"
+            muted
+            playsInline
+            preload="auto"
+            onLoadedMetadata={() => setVideoReady(true)}
+            className="h-full w-full object-cover opacity-70"
+            style={{
+              willChange: "transform",
+              transform: "translateZ(0)",
+            }}
+          />
           {/* Gradient overlays */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/60 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent" />
@@ -280,11 +273,6 @@ export default function Hero() {
               </button>
             </div>
           </div>
-        </div>
-
-        {/* Frame counter (debug - can remove) */}
-        <div className="absolute bottom-24 left-8 text-white/30 font-body text-xs">
-          Frame: {currentFrame + 1} / {TOTAL_FRAMES}
         </div>
 
         {/* Bottom Social Icons */}
