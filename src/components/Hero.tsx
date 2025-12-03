@@ -109,9 +109,9 @@ export default function Hero() {
   }, [goToPrev, goToNext]);
 
   return (
-    <section ref={heroRef} className="relative h-[300vh] w-full">
-      {/* Sticky hero container */}
-      <div className="sticky top-0 h-screen w-full overflow-hidden bg-[#0A0A0A]">
+    <section ref={heroRef} className="relative h-[300vh] w-full z-10">
+      {/* Fixed hero container - stays behind the curtain */}
+      <div className="fixed top-0 left-0 right-0 h-screen w-full overflow-hidden bg-[#0A0A0A]">
         {/* Background Frame Sequence */}
         <div className="absolute inset-0">
           {imagesLoaded && (
