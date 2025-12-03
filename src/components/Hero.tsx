@@ -4,15 +4,57 @@ import { useState, useEffect, useCallback, useRef } from "react";
 import { panelVariants } from "@/lib/data";
 import { TwitterIcon, InstagramIcon, LinkedInIcon } from "./Icons";
 
+const TOTAL_FRAMES = 144;
+
 export default function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
-  const [videoReady, setVideoReady] = useState(false);
+  const [currentFrame, setCurrentFrame] = useState(0);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const imagesRef = useRef<HTMLImageElement[]>([]);
   const currentPanel = panelVariants[currentIndex];
 
-  // Video scrubbing based on scroll position
+  // Preload all frame images
+  useEffect(() => {
+    const images: HTMLImageElement[] = [];
+    let loadedCount = 0;
+
+    for (let i = 0; i < TOTAL_FRAMES; i++) {
+      const img = new Image();
+      img.src = `/sequences/frames/frame_${String(i).padStart(4, "0")}.webp`;
+      img.onload = () => {
+        loadedCount++;
+        if (loadedCount === TOTAL_FRAMES) {
+          imagesRef.current = images;
+          setImagesLoaded(true);
+        }
+      };
+      images.push(img);
+    }
+  }, []);
+
+  // Draw frame to canvas (much smoother than img src swapping)
+  useEffect(() => {
+    if (!imagesLoaded || !canvasRef.current) return;
+
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const img = imagesRef.current[currentFrame];
+    if (img) {
+      // Set canvas size to match image on first draw
+      if (canvas.width !== img.width || canvas.height !== img.height) {
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+      }
+      ctx.drawImage(img, 0, 0);
+    }
+  }, [currentFrame, imagesLoaded]);
+
+  // Scroll-linked frame animation AND panel transitions
   useEffect(() => {
     let lastPanelIndex = 0;
     let ticking = false;
@@ -22,7 +64,7 @@ export default function Hero() {
 
       ticking = true;
       requestAnimationFrame(() => {
-        if (!heroRef.current || !videoRef.current || !videoReady) {
+        if (!heroRef.current) {
           ticking = false;
           return;
         }
@@ -31,12 +73,9 @@ export default function Hero() {
         const viewportHeight = window.innerHeight;
         const scrollRange = viewportHeight * 2;
         const progress = Math.min(Math.max(scrollY / scrollRange, 0), 1);
+        const frameIndex = Math.floor(progress * (TOTAL_FRAMES - 1));
 
-        // Scrub video to current position
-        const video = videoRef.current;
-        if (video.duration) {
-          video.currentTime = progress * video.duration;
-        }
+        setCurrentFrame(frameIndex);
 
         // Sync panel transitions with scroll progress
         const panelIndex = Math.min(
@@ -61,7 +100,7 @@ export default function Hero() {
     handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [videoReady]);
+  }, []);
 
   const goToPrev = useCallback(() => {
     if (isTransitioning) return;
@@ -97,17 +136,12 @@ export default function Hero() {
 
   return (
     <section ref={heroRef} className="relative h-[300vh] w-full z-10">
-      {/* Fixed hero container - stays behind the curtain */}
+      {/* Fixed hero container */}
       <div className="fixed top-0 left-0 right-0 h-screen w-full overflow-hidden bg-[#0A0A0A]">
-        {/* Background Video */}
+        {/* Background Frame Sequence via Canvas */}
         <div className="absolute inset-0">
-          <video
-            ref={videoRef}
-            src="/hero.mp4"
-            muted
-            playsInline
-            preload="auto"
-            onLoadedMetadata={() => setVideoReady(true)}
+          <canvas
+            ref={canvasRef}
             className="h-full w-full object-cover opacity-70"
             style={{
               willChange: "transform",
