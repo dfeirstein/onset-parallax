@@ -173,15 +173,12 @@ export default function Hero() {
                     : "opacity-100 translate-y-0"
                 }`}
               >
-                <a
-                  href="#how-it-works"
-                  className="rounded-full border border-white/30 bg-transparent px-8 py-3 font-body text-sm font-medium text-white transition-all hover:bg-white/10 hover:border-white/50"
-                >
+                <a href="#how-it-works" className="btn-secondary">
                   HOW IT WORKS
                 </a>
                 <a
                   href="#pricing"
-                  className="rounded-full px-8 py-3 font-body text-sm font-medium text-black transition-all hover:opacity-90"
+                  className="btn-primary"
                   style={{ backgroundColor: currentPanel.accentColor }}
                 >
                   GET STARTED

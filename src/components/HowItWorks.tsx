@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef } from "react";
 import { howItWorksSteps } from "@/lib/data";
 import { BoxIcon, DeviceIcon, ChartIcon } from "./Icons";
+import AnimateOnScroll from "./AnimateOnScroll";
 
 const iconMap = {
   box: BoxIcon,
@@ -11,35 +11,30 @@ const iconMap = {
 };
 
 export default function HowItWorks() {
-  const sectionRef = useRef<HTMLElement>(null);
-
   return (
-    <section
-      id="how-it-works"
-      ref={sectionRef}
-      className="relative bg-[#0A0A0A] py-24 lg:py-32"
-    >
+    <section id="how-it-works" className="relative bg-[#0A0A0A] py-24 lg:py-32">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0A0A0A] via-[#0A0A0A] to-[#111111]" />
 
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16 lg:mb-24">
+        <AnimateOnScroll className="text-center mb-16 lg:mb-24">
           <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white">
             How It Works
           </h2>
           <p className="mt-4 font-body text-lg text-white/60 max-w-2xl mx-auto">
             Three simple steps to understanding your health
           </p>
-        </div>
+        </AnimateOnScroll>
 
         {/* Steps Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
           {howItWorksSteps.map((step, index) => {
             const IconComponent = iconMap[step.icon as keyof typeof iconMap];
             return (
-              <div
+              <AnimateOnScroll
                 key={step.number}
+                delay={index * 100}
                 className="group relative"
               >
                 {/* Connector line (hidden on last item and mobile) */}
@@ -68,7 +63,7 @@ export default function HowItWorks() {
                     {step.description}
                   </p>
                 </div>
-              </div>
+              </AnimateOnScroll>
             );
           })}
         </div>

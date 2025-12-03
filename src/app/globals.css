@@ -175,6 +175,21 @@ body {
     animation: pulse 2s ease-in-out infinite;
 }
 
+/* CTA Button hover depth effect */
+.btn-primary {
+    @apply rounded-full px-8 py-3 font-body text-sm font-medium transition-all duration-200;
+    @apply bg-[#14B8A6] text-black;
+    @apply hover:-translate-y-0.5 hover:shadow-lg hover:shadow-[#14B8A6]/25;
+    @apply active:translate-y-0 active:shadow-md;
+}
+
+.btn-secondary {
+    @apply rounded-full px-8 py-3 font-body text-sm font-medium transition-all duration-200;
+    @apply border border-white/30 bg-transparent text-white;
+    @apply hover:-translate-y-0.5 hover:bg-white/10 hover:border-white/50 hover:shadow-lg hover:shadow-white/5;
+    @apply active:translate-y-0 active:shadow-md;
+}
+
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
     * {

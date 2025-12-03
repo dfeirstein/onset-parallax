@@ -1,6 +1,7 @@
 "use client";
 
 import { CheckIcon } from "./Icons";
+import AnimateOnScroll from "./AnimateOnScroll";
 
 const features = [
   "Monthly Core Panel (17 biomarkers)",
@@ -16,17 +17,17 @@ export default function Pricing() {
     <section id="pricing" className="relative bg-[#111111] py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <AnimateOnScroll className="text-center mb-16">
           <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white">
             Simple Pricing
           </h2>
           <p className="mt-4 font-body text-lg text-white/60">
             Everything you need. Cancel anytime.
           </p>
-        </div>
+        </AnimateOnScroll>
 
         {/* Pricing Card */}
-        <div className="mx-auto max-w-lg">
+        <AnimateOnScroll delay={100} className="mx-auto max-w-lg">
           <div className="relative rounded-3xl bg-gradient-to-br from-white/[0.08] to-white/[0.02] border border-white/10 p-8 lg:p-10">
             {/* Accent border */}
             <div className="absolute inset-x-0 top-0 h-[2px] rounded-t-3xl bg-gradient-to-r from-transparent via-[#14B8A6] to-transparent" />
@@ -44,7 +45,9 @@ export default function Pricing() {
                 Monthly Plan
               </h3>
               <div className="mt-4 flex items-baseline justify-center gap-2">
-                <span className="font-display text-6xl font-black text-white">$149</span>
+                <span className="font-display text-6xl font-black text-white">
+                  $149
+                </span>
                 <span className="font-body text-white/50">/month</span>
               </div>
             </div>
@@ -66,7 +69,7 @@ export default function Pricing() {
             {/* CTA */}
             <a
               href="#"
-              className="block w-full rounded-full bg-[#14B8A6] py-4 text-center font-body text-base font-medium text-black transition-all hover:bg-[#0D9488]"
+              className="btn-primary block w-full py-4 text-center text-base"
             >
               Start Your First Month
             </a>
@@ -76,15 +79,24 @@ export default function Pricing() {
               No commitment. Cancel anytime.
             </p>
           </div>
-        </div>
+        </AnimateOnScroll>
 
         {/* Additional info */}
-        <div className="mt-12 text-center">
+        <AnimateOnScroll delay={200} className="mt-12 text-center">
           <p className="font-body text-white/50">
-            Questions? <a href="#faq" className="text-[#14B8A6] hover:underline">Check our FAQ</a> or{" "}
-            <a href="mailto:hello@onsethealth.com" className="text-[#14B8A6] hover:underline">contact us</a>
+            Questions?{" "}
+            <a href="#faq" className="text-[#14B8A6] hover:underline">
+              Check our FAQ
+            </a>{" "}
+            or{" "}
+            <a
+              href="mailto:hello@onsethealth.com"
+              className="text-[#14B8A6] hover:underline"
+            >
+              contact us
+            </a>
           </p>
-        </div>
+        </AnimateOnScroll>
       </div>
     </section>
   );
