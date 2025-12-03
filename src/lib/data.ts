@@ -10,28 +10,31 @@ export interface PanelVariant {
 
 export const panelVariants: PanelVariant[] = [
   {
-    id: "monthly",
-    name: "MONTHLY",
-    subtitle: "Core Panel",
-    description: "17 biomarkers tracking your metabolic, cardiovascular, and hormonal health. No needles. No lab visits. Results in 3 days.",
+    id: "skip-lab",
+    name: "SKIP THE LAB",
+    subtitle: "Skip the Needle.",
+    description:
+      "Monthly bloodwork that comes to you. 17 biomarkers. 5 minutes. No excuses left.",
     accentColor: "#14B8A6",
     sequencePath: "/sequences/hero.webp",
     frameCount: 1,
   },
   {
-    id: "quarterly",
-    name: "QUARTERLY",
-    subtitle: "Expanded Panel",
-    description: "Everything in Monthly plus vitamins, minerals, and growth markers. Fine-tune your supplements and recovery protocol.",
+    id: "know-numbers",
+    name: "KNOW YOUR",
+    subtitle: "Numbers.",
+    description:
+      "Track testosterone, metabolic health, inflammation, and more. See what's actually happening inside.",
     accentColor: "#F59E0B",
     sequencePath: "/sequences/hero.webp",
     frameCount: 1,
   },
   {
-    id: "insights",
-    name: "INSIGHTS",
-    subtitle: "Trend Analysis",
-    description: "Your biomarkers over time. See patterns, track interventions, and watch your metabolic age improve month over month.",
+    id: "take-action",
+    name: "TAKE ACTION",
+    subtitle: "Not Guesses.",
+    description:
+      "Every result comes with what to do next. Trends, insights, and protocols that actually move the needle.",
     accentColor: "#8B5CF6",
     sequencePath: "/sequences/hero.webp",
     frameCount: 1,
@@ -87,40 +90,56 @@ export const howItWorksSteps = [
 export const faqItems = [
   {
     question: "How does the Tasso device work?",
-    answer: "The Tasso+ uses gentle vacuum technology to draw a small blood sample from your upper arm. It's FDA-cleared, painless, and takes about 5 minutes. No needles, no finger pricks.",
+    answer:
+      "The Tasso+ uses gentle vacuum technology to draw a small blood sample from your upper arm. It's FDA-cleared, painless, and takes about 5 minutes. No needles, no finger pricks.",
   },
   {
     question: "Does it hurt?",
-    answer: "Most users report feeling only a slight sensation, far less than a traditional blood draw or even a finger prick. The device uses micro-channels smaller than a mosquito bite.",
+    answer:
+      "Most users report feeling only a slight sensation, far less than a traditional blood draw or even a finger prick. The device uses micro-channels smaller than a mosquito bite.",
   },
   {
     question: "How accurate are the results compared to a lab draw?",
-    answer: "Tasso+ samples have been clinically validated against venous blood draws. Our partner labs (including ARUP Laboratories) use the same equipment and standards as traditional lab testing.",
+    answer:
+      "Tasso+ samples have been clinically validated against venous blood draws. Our partner labs (including ARUP Laboratories) use the same equipment and standards as traditional lab testing.",
   },
   {
     question: "What if my results show something concerning?",
-    answer: "If any biomarker crosses a threshold or shows a concerning trend, we'll clearly flag it and recommend a confirmatory venous draw. We'll help you book it—but we never force it.",
+    answer:
+      "If any biomarker crosses a threshold or shows a concerning trend, we'll clearly flag it and recommend a confirmatory venous draw. We'll help you book it—but we never force it.",
   },
   {
     question: "Can I use this if I'm on TRT?",
-    answer: "Absolutely. In fact, monthly monitoring is ideal for TRT patients. Track your testosterone, estradiol proxy markers, and liver function to optimize your protocol safely.",
+    answer:
+      "Absolutely. In fact, monthly monitoring is ideal for TRT patients. Track your testosterone, estradiol proxy markers, and liver function to optimize your protocol safely.",
   },
   {
     question: "How long until I get my results?",
-    answer: "Typically 2-3 business days from when our lab receives your sample. You'll get a notification the moment your results are ready.",
+    answer:
+      "Typically 2-3 business days from when our lab receives your sample. You'll get a notification the moment your results are ready.",
   },
   {
     question: "What's included in each panel?",
-    answer: "The Monthly Core Panel includes 17 biomarkers across lipids, glucose, inflammation, liver, kidney, thyroid, and hormones. Quarterly adds vitamins, minerals, and growth markers.",
+    answer:
+      "The Monthly Core Panel includes 17 biomarkers across lipids, glucose, inflammation, liver, kidney, thyroid, and hormones. Quarterly adds vitamins, minerals, and growth markers.",
   },
   {
     question: "Can I cancel anytime?",
-    answer: "Yes. No contracts, no commitments. Cancel or pause your subscription anytime from your dashboard.",
+    answer:
+      "Yes. No contracts, no commitments. Cancel or pause your subscription anytime from your dashboard.",
   },
 ];
 
 export const socialLinks = [
   { name: "Twitter", href: "https://twitter.com/onsethealth", icon: "twitter" },
-  { name: "Instagram", href: "https://instagram.com/onsethealth", icon: "instagram" },
-  { name: "LinkedIn", href: "https://linkedin.com/company/onsethealth", icon: "linkedin" },
+  {
+    name: "Instagram",
+    href: "https://instagram.com/onsethealth",
+    icon: "instagram",
+  },
+  {
+    name: "LinkedIn",
+    href: "https://linkedin.com/company/onsethealth",
+    icon: "linkedin",
+  },
 ];
