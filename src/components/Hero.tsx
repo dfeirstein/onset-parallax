@@ -71,7 +71,8 @@ export default function Hero() {
 
         const scrollY = window.scrollY;
         const viewportHeight = window.innerHeight;
-        const scrollRange = viewportHeight * 2;
+        // Extend scroll range to 2.8x viewport so animation continues during curtain rise
+        const scrollRange = viewportHeight * 2.8;
         const progress = Math.min(Math.max(scrollY / scrollRange, 0), 1);
         const frameIndex = Math.floor(progress * (TOTAL_FRAMES - 1));
 
