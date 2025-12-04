@@ -80,6 +80,7 @@
     --color-bg-secondary: #0f0f11;
     --color-bg-tertiary: #111111;
     --color-bg-elevated: #1a1a1d;
+    --color-bg-footer: #050505;
 
     /* Borders */
     --color-border-primary: #27272a;
@@ -418,6 +419,15 @@ body {
     letter-spacing: var(--tracking-tight);
 }
 
+/* Hero Index Number - Large decorative number */
+.text-hero-index {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(10rem, 20vw, 14rem);
+    line-height: var(--leading-none);
+    letter-spacing: var(--tracking-tight);
+}
+
 /* ============================================================================
    COLOR UTILITIES
    ============================================================================ */
@@ -438,6 +448,37 @@ body {
 .bg-accent {
     background-color: var(--color-accent-primary);
 }
+.bg-accent-secondary {
+    background-color: var(--color-accent-secondary);
+}
+.bg-accent-tertiary {
+    background-color: var(--color-accent-tertiary);
+}
+.bg-footer {
+    background-color: var(--color-bg-footer);
+}
+
+/* Background with opacity variants */
+.bg-primary-solid {
+    background-color: #0a0a0a;
+}
+.bg-primary-blur {
+    background-color: rgba(10, 10, 10, 0.8);
+}
+
+/* Background colors from text colors (for dots, indicators) */
+.bg-disabled {
+    background-color: var(--color-text-disabled);
+}
+.bg-dim {
+    background-color: var(--color-text-dim);
+}
+.bg-subtle {
+    background-color: var(--color-text-subtle);
+}
+.bg-muted {
+    background-color: var(--color-text-muted);
+}
 
 /* Text Colors */
 .text-primary {
@@ -455,8 +496,17 @@ body {
 .text-dim {
     color: var(--color-text-dim);
 }
+.text-disabled {
+    color: var(--color-text-disabled);
+}
 .text-accent {
     color: var(--color-accent-primary);
+}
+.text-accent-secondary {
+    color: var(--color-accent-secondary);
+}
+.text-accent-tertiary {
+    color: var(--color-accent-tertiary);
 }
 
 /* Borders */
@@ -568,6 +618,126 @@ body {
     box-shadow: var(--shadow-xl);
 }
 
+/* Panel Card */
+.panel-card {
+    position: relative;
+    border-radius: var(--radius-3xl);
+    background: linear-gradient(
+        to bottom right,
+        var(--color-border-subtle) 0%,
+        transparent 100%
+    );
+    border: 1px solid var(--color-border-secondary);
+    padding: var(--space-8);
+}
+
+@media (min-width: 1024px) {
+    .panel-card {
+        padding: var(--space-10);
+    }
+}
+
+/* Panel Accent Borders */
+.panel-accent-primary {
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 2px;
+    border-radius: var(--radius-3xl) var(--radius-3xl) 0 0;
+    background: linear-gradient(
+        to right,
+        var(--color-accent-primary) 0%,
+        var(--color-accent-primary) 50%,
+        transparent 100%
+    );
+}
+
+.panel-accent-secondary {
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 2px;
+    border-radius: var(--radius-3xl) var(--radius-3xl) 0 0;
+    background: linear-gradient(
+        to right,
+        var(--color-accent-secondary) 0%,
+        var(--color-accent-secondary) 50%,
+        transparent 100%
+    );
+}
+
+/* Badge Circle */
+.badge-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3rem;
+    width: 3rem;
+    border-radius: var(--radius-full);
+    font-family: var(--font-display);
+    font-weight: 700;
+}
+
+.badge-circle-primary {
+    background-color: rgba(20, 184, 166, 0.2);
+    color: var(--color-accent-primary);
+}
+
+.badge-circle-secondary {
+    background-color: rgba(245, 158, 11, 0.2);
+    color: var(--color-accent-secondary);
+}
+
+/* Info Box */
+.info-box {
+    padding: var(--space-4);
+    border-radius: var(--radius-xl);
+    background-color: var(--color-border-subtle);
+    border: 1px solid var(--color-border-secondary);
+}
+
+/* Pricing Badge */
+.pricing-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-1) var(--space-4);
+    border-radius: var(--radius-full);
+    background-color: var(--color-accent-primary);
+    color: black;
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: var(--tracking-widest);
+    text-transform: uppercase;
+}
+
+/* Card Accent Line */
+.card-accent-line {
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 2px;
+    border-radius: var(--radius-3xl) var(--radius-3xl) 0 0;
+    background: linear-gradient(
+        to right,
+        transparent 0%,
+        var(--color-accent-primary) 50%,
+        transparent 100%
+    );
+}
+
+/* Feature Check Icon Container */
+.feature-check {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: var(--radius-full);
+    background-color: rgba(20, 184, 166, 0.2);
+}
+
 /* Surface */
 .surface {
     background: rgba(255, 255, 255, 0.02);
@@ -579,6 +749,41 @@ body {
 .surface:hover {
     background: rgba(255, 255, 255, 0.04);
     border-color: var(--color-border-secondary);
+}
+
+/* Chips/Tags */
+.chip {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--space-1) var(--space-3);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    border-radius: var(--radius-full);
+    transition: all var(--duration-normal) var(--ease-default);
+}
+
+.chip-default {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border-secondary);
+}
+
+.chip-primary {
+    background: rgba(20, 184, 166, 0.1);
+    color: var(--color-accent-primary);
+    border: 1px solid rgba(20, 184, 166, 0.2);
+}
+
+.chip-secondary {
+    background: rgba(245, 158, 11, 0.1);
+    color: var(--color-accent-secondary);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.chip-tertiary {
+    background: rgba(139, 92, 246, 0.1);
+    color: var(--color-accent-tertiary);
+    border: 1px solid rgba(139, 92, 246, 0.2);
 }
 
 /* Status Indicators */
@@ -603,6 +808,57 @@ body {
     box-shadow: 0 0 8px var(--color-status-critical);
 }
 
+/* Status Badge */
+.status-badge {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-1) var(--space-3);
+    border-radius: var(--radius-full);
+}
+
+.status-badge-optimal {
+    background-color: rgba(20, 184, 166, 0.1);
+    border: 1px solid rgba(20, 184, 166, 0.2);
+}
+
+.status-badge-warning {
+    background-color: rgba(245, 158, 11, 0.1);
+    border: 1px solid rgba(245, 158, 11, 0.2);
+}
+
+.status-badge-critical {
+    background-color: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.status-text-optimal {
+    color: var(--color-status-optimal);
+}
+
+.status-text-warning {
+    color: var(--color-status-warning);
+}
+
+.status-text-critical {
+    color: var(--color-status-critical);
+}
+
+/* Action Number Circle */
+.action-number {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: var(--radius-full);
+    background-color: rgba(20, 184, 166, 0.2);
+    color: var(--color-accent-primary);
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+}
+
 /* Glow Effects */
 .glow-teal {
     box-shadow: var(--shadow-glow-teal);
@@ -624,6 +880,163 @@ body {
         linear-gradient(90deg, var(--color-accent-primary) 1px, transparent 1px);
     background-size: 40px 40px;
     opacity: 0.1;
+}
+
+/* Gradient Overlays */
+.gradient-overlay-left {
+    background: linear-gradient(
+        to right,
+        var(--color-bg-primary) 0%,
+        rgba(10, 10, 10, 0.5) 50%,
+        transparent 100%
+    );
+}
+
+.gradient-overlay-bottom {
+    background: linear-gradient(
+        to top,
+        var(--color-bg-primary) 0%,
+        transparent 100%
+    );
+}
+
+.gradient-overlay-top {
+    background: linear-gradient(
+        to bottom,
+        var(--color-bg-primary) 0%,
+        transparent 100%
+    );
+}
+
+.gradient-bg-primary-to-tertiary {
+    background: linear-gradient(
+        to bottom,
+        var(--color-bg-primary) 0%,
+        var(--color-bg-primary) 50%,
+        var(--color-bg-tertiary) 100%
+    );
+}
+
+.gradient-bg-tertiary-to-primary {
+    background: linear-gradient(
+        to bottom,
+        var(--color-bg-tertiary) 0%,
+        var(--color-bg-primary) 50%,
+        var(--color-bg-primary) 100%
+    );
+}
+
+/* Connector Lines */
+.connector-line-right {
+    background: linear-gradient(
+        to right,
+        var(--color-border-secondary) 0%,
+        transparent 100%
+    );
+}
+
+/* Icon Container */
+.icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    transition: transform var(--duration-slow) var(--ease-default);
+}
+
+.icon-container-primary {
+    background-color: rgba(20, 184, 166, 0.1);
+    color: var(--color-accent-primary);
+}
+
+.icon-container-secondary {
+    background-color: rgba(245, 158, 11, 0.1);
+    color: var(--color-accent-secondary);
+}
+
+.icon-container-tertiary {
+    background-color: rgba(139, 92, 246, 0.1);
+    color: var(--color-accent-tertiary);
+}
+
+/* Icon Box (square with rounded corners) */
+.icon-box {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--radius-xl);
+}
+
+.icon-box-primary {
+    background-color: rgba(20, 184, 166, 0.1);
+}
+
+.icon-box-secondary {
+    background-color: rgba(245, 158, 11, 0.1);
+}
+
+/* Divider Lines */
+.divider-vertical {
+    width: 1px;
+    height: 2rem;
+    background-color: var(--color-border-secondary);
+}
+
+.divider-horizontal {
+    height: 1px;
+    width: 100%;
+    background-color: var(--color-border-secondary);
+}
+
+/* Accent Glow Backgrounds */
+.glow-bg-primary {
+    background: radial-gradient(
+        ellipse at center,
+        rgba(20, 184, 166, 0.1) 0%,
+        transparent 70%
+    );
+}
+
+.glow-bg-secondary {
+    background: radial-gradient(
+        ellipse at center,
+        rgba(245, 158, 11, 0.1) 0%,
+        transparent 70%
+    );
+}
+
+.glow-bg-tertiary {
+    background: radial-gradient(
+        ellipse at center,
+        rgba(139, 92, 246, 0.1) 0%,
+        transparent 70%
+    );
+}
+
+/* Scroll Indicator */
+.scroll-indicator-line {
+    width: 1px;
+    height: 4rem;
+    background: linear-gradient(
+        to bottom,
+        var(--color-text-dim) 0%,
+        transparent 100%
+    );
+}
+
+/* Curtain Container */
+.curtain-container {
+    background-color: var(--color-bg-primary);
+    border-radius: var(--radius-3xl) var(--radius-3xl) 0 0;
+    box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* Curtain Edge Line */
+.curtain-edge {
+    height: 1px;
+    background-color: var(--color-bg-primary);
 }
 
 /* ============================================================================

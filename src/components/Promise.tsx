@@ -6,10 +6,10 @@ export default function Promise() {
   return (
     <section className="relative bg-primary section-padding overflow-hidden">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-tertiary via-primary to-primary" />
+      <div className="absolute inset-0 gradient-bg-tertiary-to-primary" />
 
       {/* Accent glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] bg-accent-primary/10 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] glow-bg-primary rounded-full blur-3xl" />
 
       <div className="relative container-default text-center">
         <AnimateOnScroll>

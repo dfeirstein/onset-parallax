@@ -25,7 +25,7 @@ const legalLinks = [
 
 export default function Footer() {
   return (
-    <footer className="bg-[#050505] py-16 lg:py-20">
+    <footer className="bg-footer py-16 lg:py-20">
       <div className="container-default">
         {/* Main Footer Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 mb-12">
@@ -92,7 +92,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="h-[1px] border-primary mb-8" />
+        <div className="divider-horizontal mb-8" />
 
         {/* Bottom Row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">

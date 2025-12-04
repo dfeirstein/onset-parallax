@@ -136,7 +136,7 @@ export default function Hero() {
       {/* Fixed hero container */}
       <div className="fixed top-0 left-0 right-0 h-screen w-full overflow-hidden bg-primary">
         {/* Background Frame Sequence via Canvas */}
-        <div className="absolute inset-0 bg-[#0A0A0A]">
+        <div className="absolute inset-0 bg-primary-solid">
           <canvas
             ref={canvasRef}
             className="h-full w-full object-cover"
@@ -146,9 +146,9 @@ export default function Hero() {
               filter: "brightness(1.15) contrast(1.1)",
             }}
           />
-          {/* Gradient overlays - matching exact background color */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/50 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent" />
+          {/* Gradient overlays */}
+          <div className="absolute inset-0 gradient-overlay-left" />
+          <div className="absolute inset-0 gradient-overlay-bottom" />
         </div>
 
         {/* Content Container */}
@@ -216,10 +216,10 @@ export default function Hero() {
           <div className="hidden lg:flex flex-col items-center justify-center pr-8 xl:pr-16">
             {/* Large Index Number */}
             <div
-              className={`font-display text-[180px] xl:text-[220px] font-black leading-none tracking-tight transition-all duration-300 ${
-                isTransitioning ? "opacity-0 scale-95" : "opacity-100 scale-100"
+              className={`text-hero-index opacity-15 transition-all duration-300 ${
+                isTransitioning ? "opacity-0 scale-95" : "scale-100"
               }`}
-              style={{ color: currentPanel.accentColor, opacity: 0.15 }}
+              style={{ color: currentPanel.accentColor }}
             >
               {String(currentIndex + 1).padStart(2, "0")}
             </div>
@@ -265,7 +265,7 @@ export default function Hero() {
                     className={`h-2 w-2 rounded-full transition-all duration-300 ${
                       index === currentIndex
                         ? "scale-125"
-                        : "bg-[--color-text-disabled] hover:bg-[--color-text-dim]"
+                        : "bg-disabled hover:bg-dim"
                     }`}
                     style={{
                       backgroundColor:
@@ -339,7 +339,7 @@ export default function Hero() {
           <span className="text-label-sm rotate-90 origin-center translate-y-8">
             Scroll
           </span>
-          <div className="h-16 w-[1px] bg-gradient-to-b from-[--color-text-dim] to-transparent mt-12" />
+          <div className="scroll-indicator-line mt-12" />
         </div>
       </div>
     </section>

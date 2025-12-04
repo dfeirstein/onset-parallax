@@ -14,7 +14,7 @@ export default function HowItWorks() {
   return (
     <section id="how-it-works" className="relative bg-primary section-padding">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[--color-bg-primary] via-[--color-bg-primary] to-[--color-bg-tertiary]" />
+      <div className="absolute inset-0 gradient-bg-primary-to-tertiary" />
 
       <div className="relative container-default">
         {/* Section Header */}
@@ -37,7 +37,7 @@ export default function HowItWorks() {
               >
                 {/* Connector line (hidden on last item and mobile) */}
                 {index < howItWorksSteps.length - 1 && (
-                  <div className="hidden md:block absolute top-12 left-[60%] w-[80%] h-[1px] bg-gradient-to-r from-[--color-border-secondary] to-transparent" />
+                  <div className="hidden md:block absolute top-12 left-[60%] w-[80%] h-[1px] connector-line-right" />
                 )}
 
                 <div className="surface relative flex flex-col items-center text-center p-8 transition-all duration-300">
@@ -47,7 +47,7 @@ export default function HowItWorks() {
                   </div>
 
                   {/* Icon */}
-                  <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[--color-accent-primary]/10 text-accent transition-transform duration-300 group-hover:scale-110">
+                  <div className="mb-6 h-16 w-16 icon-container icon-container-primary group-hover:scale-110">
                     <IconComponent className="w-8 h-8" />
                   </div>
 

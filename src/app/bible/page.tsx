@@ -262,12 +262,7 @@ const LogoSection = () => (
             className="w-full h-full text-primary fill-current drop-shadow-[0_0_30px_rgba(20,184,166,0.2)]"
           >
             <path d="M50 0 L100 25 V75 L50 100 L0 75 V25 L50 0 Z M50 20 L80 35 V65 L50 80 L20 65 V35 L50 20 Z" />
-            <circle
-              cx="50"
-              cy="50"
-              r="12"
-              className="fill-[--color-accent-primary]"
-            />
+            <circle cx="50" cy="50" r="12" fill="#14b8a6" />
           </svg>
 
           <div className="absolute top-8 left-8 text-mono text-accent">x</div>

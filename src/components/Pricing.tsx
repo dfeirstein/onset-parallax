@@ -28,13 +28,11 @@ export default function Pricing() {
         <AnimateOnScroll delay={100} className="mx-auto max-w-lg">
           <div className="relative card-elevated p-8 lg:p-10">
             {/* Accent border */}
-            <div className="absolute inset-x-0 top-0 h-[2px] rounded-t-3xl bg-gradient-to-r from-transparent via-accent-primary to-transparent" />
+            <div className="card-accent-line" />
 
             {/* Badge */}
             <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-              <span className="inline-flex items-center rounded-full bg-[#14B8A6] px-4 py-1.5 font-body text-xs font-bold uppercase tracking-widest text-black">
-                Most Popular
-              </span>
+              <span className="pricing-badge">Most Popular</span>
             </div>
 
             {/* Plan Name */}
@@ -50,10 +48,8 @@ export default function Pricing() {
             <ul className="space-y-4 mb-8">
               {features.map((feature, index) => (
                 <li key={index} className="flex items-start gap-3">
-                  <div className="flex-shrink-0 mt-0.5">
-                    <div className="flex h-5 w-5 items-center justify-center rounded-full bg-accent-primary/20">
-                      <CheckIcon className="w-3 h-3 text-accent-primary" />
-                    </div>
+                  <div className="feature-check mt-0.5">
+                    <CheckIcon className="w-3 h-3 text-accent" />
                   </div>
                   <span className="text-body-sm text-muted">{feature}</span>
                 </li>

@@ -24,7 +24,7 @@ export default function Home() {
       )}
 
       <main
-        className={`min-h-screen bg-[#0A0A0A] transition-opacity duration-500 ${
+        className={`min-h-screen bg-primary-solid transition-opacity duration-500 ${
           isLoading ? "opacity-0" : "opacity-100"
         }`}
       >
@@ -36,10 +36,10 @@ export default function Home() {
         {/* Content curtain - slides up over the hero */}
         <div className="relative z-20">
           {/* Curtain edge - solid color, no gradient to avoid artifacts */}
-          <div className="absolute inset-x-0 -top-px h-px bg-[#0A0A0A] pointer-events-none" />
+          <div className="absolute inset-x-0 -top-px curtain-edge pointer-events-none" />
 
           {/* Main content wrapper */}
-          <div className="relative bg-[#0A0A0A] rounded-t-[2rem] shadow-[0_-20px_60px_rgba(0,0,0,0.5)]">
+          <div className="relative curtain-container">
             <HowItWorks />
             <Panels />
             <Science />

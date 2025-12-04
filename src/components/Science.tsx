@@ -9,7 +9,7 @@ export default function Science() {
       className="relative bg-primary section-padding overflow-hidden"
     >
       {/* Background accent */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[--color-accent-primary]/5 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] glow-bg-primary rounded-full blur-3xl" />
 
       <div className="relative container-default">
         {/* Section Header */}
@@ -27,7 +27,7 @@ export default function Science() {
           <AnimateOnScroll delay={0}>
             <div className="surface relative p-8 h-full">
               <div className="mb-6">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[--color-accent-primary]/10">
+                <div className="icon-box icon-box-primary">
                   <svg
                     className="w-6 h-6 text-accent"
                     viewBox="0 0 24 24"
@@ -57,7 +57,7 @@ export default function Science() {
           <AnimateOnScroll delay={100}>
             <div className="surface relative p-8 h-full">
               <div className="mb-6">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[--color-accent-primary]/10">
+                <div className="icon-box icon-box-primary">
                   <svg
                     className="w-6 h-6 text-accent"
                     viewBox="0 0 24 24"
@@ -87,7 +87,7 @@ export default function Science() {
           <AnimateOnScroll delay={200}>
             <div className="surface relative p-8 h-full">
               <div className="mb-6">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[--color-accent-primary]/10">
+                <div className="icon-box icon-box-primary">
                   <svg
                     className="w-6 h-6 text-accent"
                     viewBox="0 0 24 24"
@@ -123,12 +123,12 @@ export default function Science() {
             <span className="text-data text-primary">FDA</span>
             <span className="text-body-sm text-dim">Class II Cleared</span>
           </div>
-          <div className="h-8 w-[1px] bg-[--color-border-secondary]" />
+          <div className="divider-vertical" />
           <div className="flex flex-col items-center">
             <span className="text-data text-primary">CLIA</span>
             <span className="text-body-sm text-dim">Certified Labs</span>
           </div>
-          <div className="h-8 w-[1px] bg-[--color-border-secondary]" />
+          <div className="divider-vertical" />
           <div className="flex flex-col items-center">
             <span className="text-data text-primary">HIPAA</span>
             <span className="text-body-sm text-dim">Compliant</span>

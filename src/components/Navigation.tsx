@@ -43,15 +43,21 @@ export default function Navigation() {
     <nav
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
         scrolled
-          ? "bg-[--color-bg-primary]/80 backdrop-blur-lg border-b border-subtle"
+          ? "bg-primary-blur backdrop-blur-lg border-b border-subtle"
           : "bg-transparent"
       }`}
     >
       <div className="container-default">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <a href="#" className="text-display-sm text-primary">
-            ONSET
+          <a href="#" className="flex items-center gap-3">
+            <div
+              className="w-8 h-8 clip-hex flex items-center justify-center"
+              style={{ backgroundColor: "var(--color-accent-primary)" }}
+            >
+              <div className="w-2 h-2 bg-black rounded-full"></div>
+            </div>
+            <span className="text-display-sm text-primary">ONSET</span>
           </a>
 
           {/* Navigation Links - Desktop */}

@@ -7,8 +7,8 @@ export default function FinalCTA() {
     <section className="relative bg-tertiary section-padding overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-64 h-64 bg-accent-primary/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-accent-tertiary/10 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/4 w-64 h-64 glow-bg-primary rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 glow-bg-tertiary rounded-full blur-3xl" />
       </div>
 
       <div className="relative container-default text-center">

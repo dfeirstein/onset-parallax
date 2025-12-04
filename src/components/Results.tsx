@@ -59,7 +59,7 @@ export default function Results() {
           <AnimateOnScroll delay={150}>
             <div className="relative">
               {/* Glow effect */}
-              <div className="absolute inset-0 bg-[--color-accent-primary]/20 blur-3xl rounded-full" />
+              <div className="absolute inset-0 glow-bg-primary blur-3xl rounded-full" />
 
               {/* Card */}
               <div className="card-elevated relative p-6 lg:p-8">
@@ -69,9 +69,9 @@ export default function Results() {
                     <p className="text-body-sm text-dim">October Results</p>
                     <p className="text-display-sm text-primary">Sample User</p>
                   </div>
-                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[--color-status-optimal]/10 border border-[--color-status-optimal]/20">
+                  <div className="status-badge status-badge-optimal">
                     <div className="status-dot status-optimal" />
-                    <span className="text-body-sm text-[--color-status-optimal]">
+                    <span className="text-body-sm status-text-optimal">
                       On Track
                     </span>
                   </div>
@@ -103,31 +103,25 @@ export default function Results() {
                 </div>
 
                 {/* Actions */}
-                <div className="p-4 rounded-xl bg-[--color-border-subtle]">
+                <div className="info-box">
                   <h4 className="text-label text-dim mb-3">
                     Actions This Month
                   </h4>
                   <ol className="space-y-2">
                     <li className="flex items-start gap-3 text-sm">
-                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[--color-accent-primary]/20 text-accent text-body-sm flex items-center justify-center">
-                        1
-                      </span>
+                      <span className="action-number">1</span>
                       <span className="text-body-sm text-muted">
                         Maintain cardio volume (150 min/week)
                       </span>
                     </li>
                     <li className="flex items-start gap-3 text-sm">
-                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[--color-accent-primary]/20 text-accent text-body-sm flex items-center justify-center">
-                        2
-                      </span>
+                      <span className="action-number">2</span>
                       <span className="text-body-sm text-muted">
                         Add 200mg Magnesium Glycinate before bed
                       </span>
                     </li>
                     <li className="flex items-start gap-3 text-sm">
-                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[--color-accent-primary]/20 text-accent text-body-sm flex items-center justify-center">
-                        3
-                      </span>
+                      <span className="action-number">3</span>
                       <span className="text-body-sm text-muted">
                         Retest Vitamin D next quarter
                       </span>
