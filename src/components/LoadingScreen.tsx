@@ -31,7 +31,7 @@ export default function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
   }, [onLoadComplete]);
 
   return (
-    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0A0A0A]">
+    <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-primary-solid">
       {/* Logo */}
       <div className="mb-12 animate-pulse-slow">
         <h1 className="font-display text-4xl font-bold tracking-wider text-white">
@@ -43,8 +43,11 @@ export default function LoadingScreen({ onLoadComplete }: LoadingScreenProps) {
       <div className="w-64 sm:w-80">
         <div className="h-[2px] w-full overflow-hidden rounded-full bg-white/10">
           <div
-            className="h-full bg-[#14B8A6] transition-all duration-100 ease-out"
-            style={{ width: `${progress}%` }}
+            className="h-full transition-all duration-100 ease-out"
+            style={{
+              backgroundColor: "var(--color-accent-primary)",
+              width: `${progress}%`,
+            }}
           />
         </div>
 
