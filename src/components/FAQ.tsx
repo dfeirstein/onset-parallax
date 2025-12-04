@@ -9,15 +9,13 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="relative bg-[#0A0A0A] py-24 lg:py-32">
+    <section id="faq" className="relative bg-primary section-padding">
       <div className="mx-auto max-w-3xl px-6 lg:px-8">
         {/* Section Header */}
         <AnimateOnScroll>
           <div className="text-center mb-16">
-            <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white">
-              Questions?
-            </h2>
-            <p className="mt-4 font-body text-lg text-white/60">
+            <h2 className="text-display-lg">Questions?</h2>
+            <p className="mt-4 text-body-lg text-subtle">
               Everything you need to know about Onset
             </p>
           </div>
@@ -27,7 +25,7 @@ export default function FAQ() {
         <div className="space-y-4">
           {faqItems.map((item, index) => (
             <AnimateOnScroll key={index} delay={index * 50}>
-              <div className="rounded-2xl bg-white/[0.02] border border-white/5 overflow-hidden transition-all duration-200 hover:border-white/10">
+              <div className="surface rounded-2xl overflow-hidden transition-all duration-200 hover:border-subtle">
                 <button
                   onClick={() =>
                     setOpenIndex(openIndex === index ? null : index)
@@ -35,14 +33,14 @@ export default function FAQ() {
                   className="flex w-full items-center justify-between p-6 text-left"
                   aria-expanded={openIndex === index}
                 >
-                  <span className="font-body text-base font-medium text-white pr-4">
+                  <span className="text-body-sm font-medium text-primary pr-4">
                     {item.question}
                   </span>
                   <div className="flex-shrink-0">
                     {openIndex === index ? (
-                      <MinusIcon className="w-5 h-5 text-[#14B8A6]" />
+                      <MinusIcon className="w-5 h-5 text-accent-primary" />
                     ) : (
-                      <PlusIcon className="w-5 h-5 text-white/40" />
+                      <PlusIcon className="w-5 h-5 text-dim" />
                     )}
                   </div>
                 </button>
@@ -53,7 +51,7 @@ export default function FAQ() {
                   }`}
                 >
                   <div className="px-6 pb-6">
-                    <p className="font-body text-white/60 leading-relaxed">
+                    <p className="text-body-sm text-subtle leading-relaxed">
                       {item.answer}
                     </p>
                   </div>
@@ -66,11 +64,11 @@ export default function FAQ() {
         {/* Contact CTA */}
         <AnimateOnScroll delay={faqItems.length * 50 + 100}>
           <div className="mt-12 text-center">
-            <p className="font-body text-white/50">
+            <p className="text-body-sm text-dim">
               Still have questions?{" "}
               <a
                 href="mailto:hello@onsethealth.com"
-                className="text-[#14B8A6] hover:underline"
+                className="text-accent hover:underline"
               >
                 Reach out to our team
               </a>

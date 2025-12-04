@@ -35,8 +35,8 @@ export default function Home() {
 
         {/* Content curtain - slides up over the hero */}
         <div className="relative z-20">
-          {/* Curtain edge with subtle shadow for depth */}
-          <div className="absolute inset-x-0 -top-32 h-32 bg-gradient-to-t from-[#0A0A0A] to-transparent pointer-events-none" />
+          {/* Curtain edge - solid color, no gradient to avoid artifacts */}
+          <div className="absolute inset-x-0 -top-px h-px bg-[#0A0A0A] pointer-events-none" />
 
           {/* Main content wrapper */}
           <div className="relative bg-[#0A0A0A] rounded-t-[2rem] shadow-[0_-20px_60px_rgba(0,0,0,0.5)]">

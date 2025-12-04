@@ -26,30 +26,28 @@ const legalLinks = [
 export default function Footer() {
   return (
     <footer className="bg-[#050505] py-16 lg:py-20">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="container-default">
         {/* Main Footer Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 mb-12">
           {/* Brand Column */}
           <div className="col-span-2 md:col-span-1">
-            <a href="#" className="font-display text-2xl font-bold tracking-wider text-white">
+            <a href="#" className="text-display-sm">
               ONSET
             </a>
-            <p className="mt-4 font-body text-sm text-white/40">
+            <p className="mt-4 text-body-sm text-dim">
               Track. Trend. Transform.
             </p>
           </div>
 
           {/* Product Links */}
           <div>
-            <h4 className="font-body text-sm font-medium uppercase tracking-wider text-white/60 mb-4">
-              Product
-            </h4>
+            <h4 className="text-label text-subtle mb-4">Product</h4>
             <ul className="space-y-3">
               {productLinks.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="font-body text-sm text-white/40 transition-colors hover:text-white"
+                    className="text-body-sm text-dim transition-colors hover:text-primary"
                   >
                     {link.label}
                   </a>
@@ -60,15 +58,13 @@ export default function Footer() {
 
           {/* Company Links */}
           <div>
-            <h4 className="font-body text-sm font-medium uppercase tracking-wider text-white/60 mb-4">
-              Company
-            </h4>
+            <h4 className="text-label text-subtle mb-4">Company</h4>
             <ul className="space-y-3">
               {companyLinks.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="font-body text-sm text-white/40 transition-colors hover:text-white"
+                    className="text-body-sm text-dim transition-colors hover:text-primary"
                   >
                     {link.label}
                   </a>
@@ -79,15 +75,13 @@ export default function Footer() {
 
           {/* Legal Links */}
           <div>
-            <h4 className="font-body text-sm font-medium uppercase tracking-wider text-white/60 mb-4">
-              Legal
-            </h4>
+            <h4 className="text-label text-subtle mb-4">Legal</h4>
             <ul className="space-y-3">
               {legalLinks.map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="font-body text-sm text-white/40 transition-colors hover:text-white"
+                    className="text-body-sm text-dim transition-colors hover:text-primary"
                   >
                     {link.label}
                   </a>
@@ -98,12 +92,12 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="h-[1px] bg-white/10 mb-8" />
+        <div className="h-[1px] border-primary mb-8" />
 
         {/* Bottom Row */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           {/* Copyright */}
-          <p className="font-body text-sm text-white/30">
+          <p className="text-body-sm text-dim">
             © 2025 Onset Health, Inc. All rights reserved.
           </p>
 
@@ -113,7 +107,7 @@ export default function Footer() {
               href="https://twitter.com/onsethealth"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/30 transition-colors hover:text-white"
+              className="text-dim transition-colors hover:text-primary"
               aria-label="Twitter"
             >
               <TwitterIcon className="w-5 h-5" />
@@ -122,7 +116,7 @@ export default function Footer() {
               href="https://instagram.com/onsethealth"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/30 transition-colors hover:text-white"
+              className="text-dim transition-colors hover:text-primary"
               aria-label="Instagram"
             >
               <InstagramIcon className="w-5 h-5" />
@@ -131,7 +125,7 @@ export default function Footer() {
               href="https://linkedin.com/company/onsethealth"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/30 transition-colors hover:text-white"
+              className="text-dim transition-colors hover:text-primary"
               aria-label="LinkedIn"
             >
               <LinkedInIcon className="w-5 h-5" />

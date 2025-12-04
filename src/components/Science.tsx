@@ -6,18 +6,18 @@ export default function Science() {
   return (
     <section
       id="science"
-      className="relative bg-[#0A0A0A] py-24 lg:py-32 overflow-hidden"
+      className="relative bg-primary section-padding overflow-hidden"
     >
       {/* Background accent */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#14B8A6]/5 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[--color-accent-primary]/5 rounded-full blur-3xl" />
 
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="relative container-default">
         {/* Section Header */}
         <AnimateOnScroll className="text-center mb-16 lg:mb-24">
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white">
+          <h2 className="text-display-lg text-primary">
             Lab-Grade Results.
             <br />
-            <span className="text-[#14B8A6]">Zero Lab Visits.</span>
+            <span className="text-accent">Zero Lab Visits.</span>
           </h2>
         </AnimateOnScroll>
 
@@ -25,11 +25,11 @@ export default function Science() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Tasso+ Technology */}
           <AnimateOnScroll delay={0}>
-            <div className="relative p-8 rounded-2xl bg-white/[0.02] border border-white/5 h-full">
+            <div className="surface relative p-8 h-full">
               <div className="mb-6">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[#14B8A6]/10">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[--color-accent-primary]/10">
                   <svg
-                    className="w-6 h-6 text-[#14B8A6]"
+                    className="w-6 h-6 text-accent"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -43,10 +43,10 @@ export default function Science() {
                   </svg>
                 </div>
               </div>
-              <h3 className="font-display text-xl font-bold text-white mb-3">
+              <h3 className="text-display-sm text-primary mb-3">
                 Tasso+ Technology
               </h3>
-              <p className="font-body text-white/60 leading-relaxed">
+              <p className="text-body-md text-subtle">
                 FDA Class II cleared. 300-600µL capillary blood collection.
                 Lower hemolysis than finger pricks for superior sample quality.
               </p>
@@ -55,11 +55,11 @@ export default function Science() {
 
           {/* Partner Labs */}
           <AnimateOnScroll delay={100}>
-            <div className="relative p-8 rounded-2xl bg-white/[0.02] border border-white/5 h-full">
+            <div className="surface relative p-8 h-full">
               <div className="mb-6">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[#14B8A6]/10">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[--color-accent-primary]/10">
                   <svg
-                    className="w-6 h-6 text-[#14B8A6]"
+                    className="w-6 h-6 text-accent"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -73,10 +73,10 @@ export default function Science() {
                   </svg>
                 </div>
               </div>
-              <h3 className="font-display text-xl font-bold text-white mb-3">
+              <h3 className="text-display-sm text-primary mb-3">
                 Partner Labs
               </h3>
-              <p className="font-body text-white/60 leading-relaxed">
+              <p className="text-body-md text-subtle">
                 ARUP Laboratories and CLIA-certified network. The same standards
                 and equipment used for traditional venous blood testing.
               </p>
@@ -85,11 +85,11 @@ export default function Science() {
 
           {/* Validated Panels */}
           <AnimateOnScroll delay={200}>
-            <div className="relative p-8 rounded-2xl bg-white/[0.02] border border-white/5 h-full">
+            <div className="surface relative p-8 h-full">
               <div className="mb-6">
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[#14B8A6]/10">
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[--color-accent-primary]/10">
                   <svg
-                    className="w-6 h-6 text-[#14B8A6]"
+                    className="w-6 h-6 text-accent"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -103,10 +103,10 @@ export default function Science() {
                   </svg>
                 </div>
               </div>
-              <h3 className="font-display text-xl font-bold text-white mb-3">
+              <h3 className="text-display-sm text-primary mb-3">
                 Validated Panels
               </h3>
-              <p className="font-body text-white/60 leading-relaxed">
+              <p className="text-body-md text-subtle">
                 Every biomarker clinically validated for capillary blood
                 accuracy. Results you can trust, action you can take.
               </p>
@@ -120,28 +120,18 @@ export default function Science() {
           className="mt-16 flex flex-wrap items-center justify-center gap-8 lg:gap-16"
         >
           <div className="flex flex-col items-center">
-            <span className="font-display text-3xl font-bold text-white">
-              FDA
-            </span>
-            <span className="font-body text-sm text-white/40">
-              Class II Cleared
-            </span>
+            <span className="text-data text-primary">FDA</span>
+            <span className="text-body-sm text-dim">Class II Cleared</span>
           </div>
-          <div className="h-8 w-[1px] bg-white/10" />
+          <div className="h-8 w-[1px] bg-[--color-border-secondary]" />
           <div className="flex flex-col items-center">
-            <span className="font-display text-3xl font-bold text-white">
-              CLIA
-            </span>
-            <span className="font-body text-sm text-white/40">
-              Certified Labs
-            </span>
+            <span className="text-data text-primary">CLIA</span>
+            <span className="text-body-sm text-dim">Certified Labs</span>
           </div>
-          <div className="h-8 w-[1px] bg-white/10" />
+          <div className="h-8 w-[1px] bg-[--color-border-secondary]" />
           <div className="flex flex-col items-center">
-            <span className="font-display text-3xl font-bold text-white">
-              HIPAA
-            </span>
-            <span className="font-body text-sm text-white/40">Compliant</span>
+            <span className="text-data text-primary">HIPAA</span>
+            <span className="text-body-sm text-dim">Compliant</span>
           </div>
         </AnimateOnScroll>
       </div>

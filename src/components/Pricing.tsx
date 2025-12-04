@@ -14,41 +14,35 @@ const features = [
 
 export default function Pricing() {
   return (
-    <section id="pricing" className="relative bg-[#111111] py-24 lg:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section id="pricing" className="relative bg-tertiary section-padding">
+      <div className="container-default">
         {/* Section Header */}
         <AnimateOnScroll className="text-center mb-16">
-          <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold text-white">
-            Simple Pricing
-          </h2>
-          <p className="mt-4 font-body text-lg text-white/60">
+          <h2 className="text-display-lg">Simple Pricing</h2>
+          <p className="mt-4 text-body-lg text-subtle">
             Everything you need. Cancel anytime.
           </p>
         </AnimateOnScroll>
 
         {/* Pricing Card */}
         <AnimateOnScroll delay={100} className="mx-auto max-w-lg">
-          <div className="relative rounded-3xl bg-gradient-to-br from-white/[0.08] to-white/[0.02] border border-white/10 p-8 lg:p-10">
+          <div className="relative card-elevated p-8 lg:p-10">
             {/* Accent border */}
-            <div className="absolute inset-x-0 top-0 h-[2px] rounded-t-3xl bg-gradient-to-r from-transparent via-[#14B8A6] to-transparent" />
+            <div className="absolute inset-x-0 top-0 h-[2px] rounded-t-3xl bg-gradient-to-r from-transparent via-accent-primary to-transparent" />
 
             {/* Badge */}
             <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-              <span className="inline-flex items-center rounded-full bg-[#14B8A6] px-4 py-1 font-body text-sm font-medium text-black">
+              <span className="inline-flex items-center rounded-full bg-accent-primary px-4 py-1 text-label text-black">
                 Most Popular
               </span>
             </div>
 
             {/* Plan Name */}
             <div className="text-center mb-8 pt-4">
-              <h3 className="font-display text-2xl font-bold text-white">
-                Monthly Plan
-              </h3>
+              <h3 className="text-display-sm">Monthly Plan</h3>
               <div className="mt-4 flex items-baseline justify-center gap-2">
-                <span className="font-display text-6xl font-black text-white">
-                  $149
-                </span>
-                <span className="font-body text-white/50">/month</span>
+                <span className="text-data">$149</span>
+                <span className="text-body-sm text-dim">/month</span>
               </div>
             </div>
 
@@ -57,11 +51,11 @@ export default function Pricing() {
               {features.map((feature, index) => (
                 <li key={index} className="flex items-start gap-3">
                   <div className="flex-shrink-0 mt-0.5">
-                    <div className="flex h-5 w-5 items-center justify-center rounded-full bg-[#14B8A6]/20">
-                      <CheckIcon className="w-3 h-3 text-[#14B8A6]" />
+                    <div className="flex h-5 w-5 items-center justify-center rounded-full bg-accent-primary/20">
+                      <CheckIcon className="w-3 h-3 text-accent-primary" />
                     </div>
                   </div>
-                  <span className="font-body text-white/80">{feature}</span>
+                  <span className="text-body-sm text-muted">{feature}</span>
                 </li>
               ))}
             </ul>
@@ -75,7 +69,7 @@ export default function Pricing() {
             </a>
 
             {/* Note */}
-            <p className="mt-4 text-center font-body text-sm text-white/40">
+            <p className="mt-4 text-center text-body-sm text-dim">
               No commitment. Cancel anytime.
             </p>
           </div>
@@ -83,15 +77,15 @@ export default function Pricing() {
 
         {/* Additional info */}
         <AnimateOnScroll delay={200} className="mt-12 text-center">
-          <p className="font-body text-white/50">
+          <p className="text-body-sm text-dim">
             Questions?{" "}
-            <a href="#faq" className="text-[#14B8A6] hover:underline">
+            <a href="#faq" className="text-accent hover:underline">
               Check our FAQ
             </a>{" "}
             or{" "}
             <a
               href="mailto:hello@onsethealth.com"
-              className="text-[#14B8A6] hover:underline"
+              className="text-accent hover:underline"
             >
               contact us
             </a>

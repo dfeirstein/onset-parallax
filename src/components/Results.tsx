@@ -4,21 +4,21 @@ import AnimateOnScroll from "./AnimateOnScroll";
 
 export default function Results() {
   return (
-    <section className="relative bg-[#111111] py-24 lg:py-32 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="relative bg-tertiary section-padding overflow-hidden">
+      <div className="container-default">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left - Content */}
           <div>
             <AnimateOnScroll>
-              <h2 className="font-display text-4xl sm:text-5xl font-bold text-white mb-6">
+              <h2 className="text-display-lg text-primary mb-6">
                 Results That
                 <br />
-                <span className="text-[#14B8A6]">Drive Action</span>
+                <span className="text-accent">Drive Action</span>
               </h2>
             </AnimateOnScroll>
 
             <AnimateOnScroll delay={100}>
-              <p className="font-body text-lg text-white/60 mb-8 max-w-md">
+              <p className="text-body-lg text-subtle mb-8 max-w-md">
                 Every result comes with trend analysis and concrete actions. No
                 jargon, no confusion—just clear next steps.
               </p>
@@ -35,7 +35,7 @@ export default function Results() {
                   <li key={index} className="flex items-start gap-3">
                     <div className="flex-shrink-0 mt-1">
                       <svg
-                        className="w-5 h-5 text-[#14B8A6]"
+                        className="w-5 h-5 text-accent"
                         viewBox="0 0 24 24"
                         fill="none"
                         stroke="currentColor"
@@ -48,7 +48,7 @@ export default function Results() {
                         />
                       </svg>
                     </div>
-                    <span className="font-body text-white/80">{item}</span>
+                    <span className="text-body-md text-secondary">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -59,23 +59,19 @@ export default function Results() {
           <AnimateOnScroll delay={150}>
             <div className="relative">
               {/* Glow effect */}
-              <div className="absolute inset-0 bg-[#14B8A6]/20 blur-3xl rounded-full" />
+              <div className="absolute inset-0 bg-[--color-accent-primary]/20 blur-3xl rounded-full" />
 
               {/* Card */}
-              <div className="relative rounded-2xl bg-[#1A1A1A] border border-white/10 p-6 lg:p-8 shadow-2xl">
+              <div className="card-elevated relative p-6 lg:p-8">
                 {/* Header */}
-                <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/10">
+                <div className="flex items-center justify-between mb-6 pb-4 border-b border-secondary">
                   <div>
-                    <p className="font-body text-sm text-white/40">
-                      October Results
-                    </p>
-                    <p className="font-display text-lg font-bold text-white">
-                      Sample User
-                    </p>
+                    <p className="text-body-sm text-dim">October Results</p>
+                    <p className="text-display-sm text-primary">Sample User</p>
                   </div>
-                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-green-500/10 border border-green-500/20">
-                    <div className="w-2 h-2 rounded-full bg-green-500" />
-                    <span className="font-body text-sm text-green-500">
+                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[--color-status-optimal]/10 border border-[--color-status-optimal]/20">
+                    <div className="status-dot status-optimal" />
+                    <span className="text-body-sm text-[--color-status-optimal]">
                       On Track
                     </span>
                   </div>
@@ -83,25 +79,23 @@ export default function Results() {
 
                 {/* Key Insights */}
                 <div className="mb-6">
-                  <h4 className="font-body text-xs font-medium uppercase tracking-wider text-white/40 mb-3">
-                    Key Insights
-                  </h4>
+                  <h4 className="text-label text-dim mb-3">Key Insights</h4>
                   <ul className="space-y-2">
                     <li className="flex items-start gap-2 text-sm">
-                      <span className="text-[#14B8A6]">•</span>
-                      <span className="font-body text-white/70">
+                      <span className="text-accent">•</span>
+                      <span className="text-body-sm text-muted">
                         LDL-C down 12% since starting Zone 2 cardio
                       </span>
                     </li>
                     <li className="flex items-start gap-2 text-sm">
-                      <span className="text-[#14B8A6]">•</span>
-                      <span className="font-body text-white/70">
+                      <span className="text-accent">•</span>
+                      <span className="text-body-sm text-muted">
                         HbA1c stable at 5.2% — metabolic health strong
                       </span>
                     </li>
                     <li className="flex items-start gap-2 text-sm">
-                      <span className="text-[#14B8A6]">•</span>
-                      <span className="font-body text-white/70">
+                      <span className="text-accent">•</span>
+                      <span className="text-body-sm text-muted">
                         Testosterone trending up after sleep protocol
                       </span>
                     </li>
@@ -109,32 +103,32 @@ export default function Results() {
                 </div>
 
                 {/* Actions */}
-                <div className="p-4 rounded-xl bg-white/5">
-                  <h4 className="font-body text-xs font-medium uppercase tracking-wider text-white/40 mb-3">
+                <div className="p-4 rounded-xl bg-[--color-border-subtle]">
+                  <h4 className="text-label text-dim mb-3">
                     Actions This Month
                   </h4>
                   <ol className="space-y-2">
                     <li className="flex items-start gap-3 text-sm">
-                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#14B8A6]/20 text-[#14B8A6] font-body text-xs flex items-center justify-center">
+                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[--color-accent-primary]/20 text-accent text-body-sm flex items-center justify-center">
                         1
                       </span>
-                      <span className="font-body text-white/70">
+                      <span className="text-body-sm text-muted">
                         Maintain cardio volume (150 min/week)
                       </span>
                     </li>
                     <li className="flex items-start gap-3 text-sm">
-                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#14B8A6]/20 text-[#14B8A6] font-body text-xs flex items-center justify-center">
+                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[--color-accent-primary]/20 text-accent text-body-sm flex items-center justify-center">
                         2
                       </span>
-                      <span className="font-body text-white/70">
+                      <span className="text-body-sm text-muted">
                         Add 200mg Magnesium Glycinate before bed
                       </span>
                     </li>
                     <li className="flex items-start gap-3 text-sm">
-                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[#14B8A6]/20 text-[#14B8A6] font-body text-xs flex items-center justify-center">
+                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-[--color-accent-primary]/20 text-accent text-body-sm flex items-center justify-center">
                         3
                       </span>
-                      <span className="font-body text-white/70">
+                      <span className="text-body-sm text-muted">
                         Retest Vitamin D next quarter
                       </span>
                     </li>

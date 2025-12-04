@@ -45,7 +45,6 @@ export default function Hero() {
 
     const img = imagesRef.current[currentFrame];
     if (img) {
-      // Set canvas size to match image on first draw
       if (canvas.width !== img.width || canvas.height !== img.height) {
         canvas.width = img.naturalWidth;
         canvas.height = img.naturalHeight;
@@ -71,14 +70,12 @@ export default function Hero() {
 
         const scrollY = window.scrollY;
         const viewportHeight = window.innerHeight;
-        // Extend scroll range to 3.3x viewport so animation continues during curtain rise
         const scrollRange = viewportHeight * 3.3;
         const progress = Math.min(Math.max(scrollY / scrollRange, 0), 1);
         const frameIndex = Math.floor(progress * (TOTAL_FRAMES - 1));
 
         setCurrentFrame(frameIndex);
 
-        // Sync panel transitions with scroll progress
         const panelIndex = Math.min(
           Math.floor(progress * panelVariants.length),
           panelVariants.length - 1,
@@ -125,7 +122,6 @@ export default function Hero() {
     }, 150);
   }, [isTransitioning]);
 
-  // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "ArrowUp") goToPrev();
@@ -138,19 +134,20 @@ export default function Hero() {
   return (
     <section ref={heroRef} className="relative h-[350vh] w-full z-10">
       {/* Fixed hero container */}
-      <div className="fixed top-0 left-0 right-0 h-screen w-full overflow-hidden bg-[#0A0A0A]">
+      <div className="fixed top-0 left-0 right-0 h-screen w-full overflow-hidden bg-primary">
         {/* Background Frame Sequence via Canvas */}
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[#0A0A0A]">
           <canvas
             ref={canvasRef}
-            className="h-full w-full object-cover opacity-70"
+            className="h-full w-full object-cover"
             style={{
               willChange: "transform",
               transform: "translateZ(0)",
+              filter: "brightness(1.15) contrast(1.1)",
             }}
           />
-          {/* Gradient overlays */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/60 to-transparent" />
+          {/* Gradient overlays - matching exact background color */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#0A0A0A] via-[#0A0A0A]/50 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] via-transparent to-transparent" />
         </div>
 
@@ -161,7 +158,7 @@ export default function Hero() {
             <div className="max-w-xl">
               {/* Panel Name */}
               <h1
-                className={`font-display text-6xl sm:text-7xl lg:text-8xl font-black tracking-tight text-white transition-all duration-300 ${
+                className={`text-display-hero transition-all duration-300 ${
                   isTransitioning
                     ? "opacity-0 translate-y-4"
                     : "opacity-100 translate-y-0"
@@ -173,7 +170,7 @@ export default function Hero() {
 
               {/* Subtitle */}
               <p
-                className={`mt-2 font-display text-2xl sm:text-3xl font-light tracking-wide text-white/90 transition-all duration-300 delay-75 ${
+                className={`mt-2 text-subtitle text-secondary transition-all duration-300 delay-75 ${
                   isTransitioning
                     ? "opacity-0 translate-y-4"
                     : "opacity-100 translate-y-0"
@@ -184,7 +181,7 @@ export default function Hero() {
 
               {/* Description */}
               <p
-                className={`mt-6 font-body text-lg leading-relaxed text-white/70 max-w-md transition-all duration-300 delay-100 ${
+                className={`mt-6 text-body-lg text-muted max-w-md transition-all duration-300 delay-100 ${
                   isTransitioning
                     ? "opacity-0 translate-y-4"
                     : "opacity-100 translate-y-0"
@@ -219,7 +216,7 @@ export default function Hero() {
           <div className="hidden lg:flex flex-col items-center justify-center pr-8 xl:pr-16">
             {/* Large Index Number */}
             <div
-              className={`font-display text-[180px] xl:text-[220px] font-black leading-none transition-all duration-300 ${
+              className={`font-display text-[180px] xl:text-[220px] font-black leading-none tracking-tight transition-all duration-300 ${
                 isTransitioning ? "opacity-0 scale-95" : "opacity-100 scale-100"
               }`}
               style={{ color: currentPanel.accentColor, opacity: 0.15 }}
@@ -232,7 +229,7 @@ export default function Hero() {
               {/* Prev Button */}
               <button
                 onClick={goToPrev}
-                className="group flex flex-col items-center gap-2 text-white/50 transition-colors hover:text-white"
+                className="group flex flex-col items-center gap-2 text-dim transition-colors hover:text-primary"
                 aria-label="Previous panel"
               >
                 <svg
@@ -248,9 +245,7 @@ export default function Hero() {
                     d="M19 9l-7 7-7-7"
                   />
                 </svg>
-                <span className="font-body text-xs uppercase tracking-widest">
-                  Prev
-                </span>
+                <span className="text-label-sm">Prev</span>
               </button>
 
               {/* Divider with dots */}
@@ -270,7 +265,7 @@ export default function Hero() {
                     className={`h-2 w-2 rounded-full transition-all duration-300 ${
                       index === currentIndex
                         ? "scale-125"
-                        : "bg-white/30 hover:bg-white/50"
+                        : "bg-[--color-text-disabled] hover:bg-[--color-text-dim]"
                     }`}
                     style={{
                       backgroundColor:
@@ -286,12 +281,10 @@ export default function Hero() {
               {/* Next Button */}
               <button
                 onClick={goToNext}
-                className="group flex flex-col items-center gap-2 text-white/50 transition-colors hover:text-white"
+                className="group flex flex-col items-center gap-2 text-dim transition-colors hover:text-primary"
                 aria-label="Next panel"
               >
-                <span className="font-body text-xs uppercase tracking-widest">
-                  Next
-                </span>
+                <span className="text-label-sm">Next</span>
                 <svg
                   className="w-4 h-4"
                   viewBox="0 0 24 24"
@@ -316,7 +309,7 @@ export default function Hero() {
             href="https://twitter.com/onsethealth"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white/40 transition-colors hover:text-white"
+            className="text-dim transition-colors hover:text-primary"
             aria-label="Twitter"
           >
             <TwitterIcon className="w-5 h-5" />
@@ -325,7 +318,7 @@ export default function Hero() {
             href="https://instagram.com/onsethealth"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white/40 transition-colors hover:text-white"
+            className="text-dim transition-colors hover:text-primary"
             aria-label="Instagram"
           >
             <InstagramIcon className="w-5 h-5" />
@@ -334,7 +327,7 @@ export default function Hero() {
             href="https://linkedin.com/company/onsethealth"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white/40 transition-colors hover:text-white"
+            className="text-dim transition-colors hover:text-primary"
             aria-label="LinkedIn"
           >
             <LinkedInIcon className="w-5 h-5" />
@@ -342,11 +335,11 @@ export default function Hero() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 right-8 hidden lg:flex flex-col items-center gap-2 text-white/40">
-          <span className="font-body text-xs uppercase tracking-widest rotate-90 origin-center translate-y-8">
+        <div className="absolute bottom-8 right-8 hidden lg:flex flex-col items-center gap-2 text-dim">
+          <span className="text-label-sm rotate-90 origin-center translate-y-8">
             Scroll
           </span>
-          <div className="h-16 w-[1px] bg-gradient-to-b from-white/40 to-transparent mt-12" />
+          <div className="h-16 w-[1px] bg-gradient-to-b from-[--color-text-dim] to-transparent mt-12" />
         </div>
       </div>
     </section>
