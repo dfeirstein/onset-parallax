@@ -71,8 +71,8 @@ export default function Hero() {
 
         const scrollY = window.scrollY;
         const viewportHeight = window.innerHeight;
-        // Extend scroll range to 2.8x viewport so animation continues during curtain rise
-        const scrollRange = viewportHeight * 2.8;
+        // Extend scroll range to 3.3x viewport so animation continues during curtain rise
+        const scrollRange = viewportHeight * 3.3;
         const progress = Math.min(Math.max(scrollY / scrollRange, 0), 1);
         const frameIndex = Math.floor(progress * (TOTAL_FRAMES - 1));
 
@@ -136,7 +136,7 @@ export default function Hero() {
   }, [goToPrev, goToNext]);
 
   return (
-    <section ref={heroRef} className="relative h-[300vh] w-full z-10">
+    <section ref={heroRef} className="relative h-[350vh] w-full z-10">
       {/* Fixed hero container */}
       <div className="fixed top-0 left-0 right-0 h-screen w-full overflow-hidden bg-[#0A0A0A]">
         {/* Background Frame Sequence via Canvas */}
