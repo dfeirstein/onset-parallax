@@ -32,7 +32,7 @@ export default function Pricing() {
 
             {/* Badge */}
             <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-              <span className="inline-flex items-center rounded-full bg-accent-primary px-4 py-1 text-label text-black">
+              <span className="inline-flex items-center rounded-full bg-[#14B8A6] px-4 py-1.5 font-body text-xs font-bold uppercase tracking-widest text-black">
                 Most Popular
               </span>
             </div>
