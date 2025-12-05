@@ -25,6 +25,28 @@ export const brand = {
     body: "Neue Montreal",
   },
 
+  // Typography styles (matching CSS classes)
+  typography: {
+    // text-display-sm - used for wordmark/logo
+    displaySm: {
+      fontFamily: "Monument Extended",
+      fontWeight: 700,
+      letterSpacing: "0em",
+    },
+    // text-subtitle - Monument Extended Light
+    subtitle: {
+      fontFamily: "Monument Extended",
+      fontWeight: 300,
+      letterSpacing: "0.05em",
+    },
+    // text-body - Neue Montreal
+    body: {
+      fontFamily: "Neue Montreal",
+      fontWeight: 500,
+      letterSpacing: "0em",
+    },
+  },
+
   // Font URLs (for OG image generation)
   fontUrls: {
     monumentBlack: "/fonts/monument/PPMonumentExtended-Black.woff2",
