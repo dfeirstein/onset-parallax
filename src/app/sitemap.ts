@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://onsethealth.com";
+  const baseUrl = "https://getonset.co";
   const lastModified = new Date();
 
   return [

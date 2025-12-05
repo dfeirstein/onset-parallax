@@ -1,5 +1,5 @@
 # Onset Health - robots.txt
-# https://onsethealth.com
+# https://getonset.co
 
 User-agent: *
 Allow: /
@@ -9,7 +9,7 @@ Disallow: /_next/
 Disallow: /bible
 
 # Sitemap location
-Sitemap: https://onsethealth.com/sitemap.xml
+Sitemap: https://getonset.co/sitemap.xml
 
 # Crawl-delay for politeness (optional)
 Crawl-delay: 1

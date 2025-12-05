@@ -67,7 +67,7 @@ export default function FAQ() {
             <p className="text-body-sm text-dim">
               Still have questions?{" "}
               <a
-                href="mailto:hello@onsethealth.com"
+                href="mailto:hello@getonset.co"
                 className="text-accent hover:underline"
               >
                 Reach out to our team

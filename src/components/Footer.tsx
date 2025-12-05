@@ -20,7 +20,7 @@ const legalLinks = [
   { label: "Privacy Policy", href: "#" },
   { label: "Terms of Service", href: "#" },
   { label: "HIPAA Notice", href: "#" },
-  { label: "Contact", href: "mailto:hello@onsethealth.com" },
+  { label: "Contact", href: "mailto:hello@getonset.co" },
 ];
 
 export default function Footer() {
@@ -104,7 +104,7 @@ export default function Footer() {
           {/* Social Icons */}
           <div className="flex items-center gap-6">
             <a
-              href="https://twitter.com/onsethealth"
+              href="https://twitter.com/getonsetco"
               target="_blank"
               rel="noopener noreferrer"
               className="text-dim transition-colors hover:text-primary"
@@ -113,7 +113,7 @@ export default function Footer() {
               <TwitterIcon className="w-5 h-5" />
             </a>
             <a
-              href="https://instagram.com/onsethealth"
+              href="https://instagram.com/getonsetco"
               target="_blank"
               rel="noopener noreferrer"
               className="text-dim transition-colors hover:text-primary"
@@ -122,7 +122,7 @@ export default function Footer() {
               <InstagramIcon className="w-5 h-5" />
             </a>
             <a
-              href="https://linkedin.com/company/onsethealth"
+              href="https://linkedin.com/company/getonsetco"
               target="_blank"
               rel="noopener noreferrer"
               className="text-dim transition-colors hover:text-primary"

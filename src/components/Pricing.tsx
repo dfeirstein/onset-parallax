@@ -80,7 +80,7 @@ export default function Pricing() {
             </a>{" "}
             or{" "}
             <a
-              href="mailto:hello@onsethealth.com"
+              href="mailto:hello@getonset.co"
               className="text-accent hover:underline"
             >
               contact us

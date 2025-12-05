@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const siteUrl = "https://onsethealth.com";
+const siteUrl = "https://getonset.co";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -60,8 +60,8 @@ export const metadata: Metadata = {
     description:
       "Track 17+ biomarkers monthly—no needles, no lab visits. Results in 3 days.",
     images: [`${siteUrl}/og-image.png`],
-    creator: "@onsethealth",
-    site: "@onsethealth",
+    creator: "@getonsetco",
+    site: "@getonsetco",
   },
   icons: {
     icon: "/favicon.svg",
@@ -85,14 +85,14 @@ const organizationSchema = {
     "Monthly blood testing from home using needle-free Tasso technology. Track 17+ biomarkers without lab visits.",
   foundingDate: "2024",
   sameAs: [
-    "https://twitter.com/onsethealth",
-    "https://instagram.com/onsethealth",
-    "https://linkedin.com/company/onsethealth",
+    "https://twitter.com/getonsetco",
+    "https://instagram.com/getonsetco",
+    "https://linkedin.com/company/getonsetco",
   ],
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "Customer Service",
-    email: "hello@onsethealth.com",
+    email: "hello@getonset.co",
   },
 };
 

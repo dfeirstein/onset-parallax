@@ -131,15 +131,15 @@ export const faqItems = [
 ];
 
 export const socialLinks = [
-  { name: "Twitter", href: "https://twitter.com/onsethealth", icon: "twitter" },
+  { name: "Twitter", href: "https://twitter.com/getonsetco", icon: "twitter" },
   {
     name: "Instagram",
-    href: "https://instagram.com/onsethealth",
+    href: "https://instagram.com/getonsetco",
     icon: "instagram",
   },
   {
     name: "LinkedIn",
-    href: "https://linkedin.com/company/onsethealth",
+    href: "https://linkedin.com/company/getonsetco",
     icon: "linkedin",
   },
 ];

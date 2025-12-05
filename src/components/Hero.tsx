@@ -306,7 +306,7 @@ export default function Hero() {
         {/* Bottom Social Icons */}
         <div className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 items-center gap-6">
           <a
-            href="https://twitter.com/onsethealth"
+            href="https://twitter.com/getonsetco"
             target="_blank"
             rel="noopener noreferrer"
             className="text-dim transition-colors hover:text-primary"
@@ -315,7 +315,7 @@ export default function Hero() {
             <TwitterIcon className="w-5 h-5" />
           </a>
           <a
-            href="https://instagram.com/onsethealth"
+            href="https://instagram.com/getonsetco"
             target="_blank"
             rel="noopener noreferrer"
             className="text-dim transition-colors hover:text-primary"
@@ -324,7 +324,7 @@ export default function Hero() {
             <InstagramIcon className="w-5 h-5" />
           </a>
           <a
-            href="https://linkedin.com/company/onsethealth"
+            href="https://linkedin.com/company/getonsetco"
             target="_blank"
             rel="noopener noreferrer"
             className="text-dim transition-colors hover:text-primary"
