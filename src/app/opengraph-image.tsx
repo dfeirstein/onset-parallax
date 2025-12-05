@@ -1,4 +1,5 @@
 import { ImageResponse } from "next/og";
+import { brand } from "@/lib/brand";
 
 export const runtime = "edge";
 
@@ -10,6 +11,19 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image() {
+  // Load fonts from production URL
+  const [monumentBlack, monumentLight, neueMontrealMedium] = await Promise.all([
+    fetch(new URL(brand.fontUrls.monumentBlack, brand.siteUrl)).then((res) =>
+      res.arrayBuffer(),
+    ),
+    fetch(new URL(brand.fontUrls.monumentLight, brand.siteUrl)).then((res) =>
+      res.arrayBuffer(),
+    ),
+    fetch(new URL(brand.fontUrls.neueMontrealMedium, brand.siteUrl)).then(
+      (res) => res.arrayBuffer(),
+    ),
+  ]);
+
   return new ImageResponse(
     (
       <div
@@ -21,12 +35,12 @@ export default async function Image() {
           alignItems: "center",
           justifyContent: "center",
           position: "relative",
-          background: "#0a0a0a",
+          background: brand.colors.bgPrimary,
         }}
       >
         {/* Background image */}
         <img
-          src="https://getonset.co/og-background.png"
+          src={`${brand.siteUrl}/og-background.png`}
           alt=""
           style={{
             position: "absolute",
@@ -45,8 +59,7 @@ export default async function Image() {
             left: 0,
             right: 0,
             bottom: 0,
-            background:
-              "linear-gradient(135deg, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.4) 50%, rgba(10,10,10,0.8) 100%)",
+            background: `linear-gradient(135deg, ${brand.colors.bgPrimary}cc 0%, ${brand.colors.bgPrimary}66 50%, ${brand.colors.bgPrimary}cc 100%)`,
           }}
         />
 
@@ -77,15 +90,16 @@ export default async function Image() {
             >
               <path
                 d="M50 5 L95 27.5 V72.5 L50 95 L5 72.5 V27.5 L50 5 Z"
-                fill="#14b8a6"
+                fill={brand.colors.accentPrimary}
               />
-              <circle cx="50" cy="50" r="12" fill="#0a0a0a" />
+              <circle cx="50" cy="50" r="12" fill={brand.colors.bgPrimary} />
             </svg>
             <span
               style={{
                 fontSize: "72px",
+                fontFamily: brand.fonts.display,
                 fontWeight: 900,
-                color: "white",
+                color: brand.colors.textPrimary,
                 letterSpacing: "-0.02em",
               }}
             >
@@ -105,8 +119,9 @@ export default async function Image() {
             <span
               style={{
                 fontSize: "36px",
+                fontFamily: brand.fonts.display,
                 fontWeight: 300,
-                color: "rgba(255,255,255,0.9)",
+                color: brand.colors.textSecondary,
                 letterSpacing: "0.05em",
               }}
             >
@@ -115,7 +130,8 @@ export default async function Image() {
             <span
               style={{
                 fontSize: "24px",
-                color: "#14b8a6",
+                fontFamily: brand.fonts.body,
+                color: brand.colors.accentPrimary,
                 fontWeight: 500,
               }}
             >
@@ -130,9 +146,9 @@ export default async function Image() {
               gap: "60px",
               marginTop: "60px",
               padding: "24px 48px",
-              background: "rgba(0,0,0,0.6)",
+              background: `${brand.colors.bgPrimary}99`,
               borderRadius: "16px",
-              border: "1px solid rgba(255,255,255,0.1)",
+              border: `1px solid ${brand.colors.borderSecondary}`,
             }}
           >
             <div
@@ -143,12 +159,22 @@ export default async function Image() {
               }}
             >
               <span
-                style={{ fontSize: "36px", fontWeight: 700, color: "white" }}
+                style={{
+                  fontSize: "36px",
+                  fontFamily: brand.fonts.display,
+                  fontWeight: 900,
+                  color: brand.colors.textPrimary,
+                }}
               >
                 17+
               </span>
               <span
-                style={{ fontSize: "14px", color: "rgba(255,255,255,0.6)" }}
+                style={{
+                  fontSize: "14px",
+                  fontFamily: brand.fonts.body,
+                  color: brand.colors.textDim,
+                  letterSpacing: "0.1em",
+                }}
               >
                 BIOMARKERS
               </span>
@@ -161,12 +187,22 @@ export default async function Image() {
               }}
             >
               <span
-                style={{ fontSize: "36px", fontWeight: 700, color: "white" }}
+                style={{
+                  fontSize: "36px",
+                  fontFamily: brand.fonts.display,
+                  fontWeight: 900,
+                  color: brand.colors.textPrimary,
+                }}
               >
                 5 min
               </span>
               <span
-                style={{ fontSize: "14px", color: "rgba(255,255,255,0.6)" }}
+                style={{
+                  fontSize: "14px",
+                  fontFamily: brand.fonts.body,
+                  color: brand.colors.textDim,
+                  letterSpacing: "0.1em",
+                }}
               >
                 COLLECTION
               </span>
@@ -179,12 +215,22 @@ export default async function Image() {
               }}
             >
               <span
-                style={{ fontSize: "36px", fontWeight: 700, color: "white" }}
+                style={{
+                  fontSize: "36px",
+                  fontFamily: brand.fonts.display,
+                  fontWeight: 900,
+                  color: brand.colors.textPrimary,
+                }}
               >
                 3 days
               </span>
               <span
-                style={{ fontSize: "14px", color: "rgba(255,255,255,0.6)" }}
+                style={{
+                  fontSize: "14px",
+                  fontFamily: brand.fonts.body,
+                  color: brand.colors.textDim,
+                  letterSpacing: "0.1em",
+                }}
               >
                 RESULTS
               </span>
@@ -195,6 +241,26 @@ export default async function Image() {
     ),
     {
       ...size,
+      fonts: [
+        {
+          name: brand.fonts.display,
+          data: monumentBlack,
+          weight: 900,
+          style: "normal",
+        },
+        {
+          name: brand.fonts.display,
+          data: monumentLight,
+          weight: 300,
+          style: "normal",
+        },
+        {
+          name: brand.fonts.body,
+          data: neueMontrealMedium,
+          weight: 500,
+          style: "normal",
+        },
+      ],
     },
   );
 }
