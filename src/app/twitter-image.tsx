@@ -1,8 +1,6 @@
 import { ImageResponse } from "next/og";
-import { readFile } from "fs/promises";
-import { join } from "path";
 
-export const runtime = "nodejs";
+export const runtime = "edge";
 
 export const alt = "Onset - Monthly Blood Testing From Home";
 export const size = {
@@ -12,14 +10,6 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image() {
-  // Read the first frame as base64
-  const framePath = join(
-    process.cwd(),
-    "public/sequences/frames/frame_0000.webp",
-  );
-  const frameBuffer = await readFile(framePath);
-  const frameBase64 = `data:image/webp;base64,${frameBuffer.toString("base64")}`;
-
   return new ImageResponse(
     (
       <div
@@ -36,7 +26,7 @@ export default async function Image() {
       >
         {/* Background image */}
         <img
-          src={frameBase64}
+          src="https://getonset.co/og-background.png"
           alt=""
           style={{
             position: "absolute",
@@ -51,7 +41,10 @@ export default async function Image() {
         <div
           style={{
             position: "absolute",
-            inset: 0,
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
             background:
               "linear-gradient(135deg, rgba(10,10,10,0.8) 0%, rgba(10,10,10,0.4) 50%, rgba(10,10,10,0.8) 100%)",
           }}
